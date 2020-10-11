@@ -31,7 +31,9 @@ const tasks =(state={tasks:intialState},action)=>{
                 if(task.id===payload.id){
                     return Object.assign({},task,payload.params);
                 }
+                return task;
             }),
+            
         };
     }
     return state
