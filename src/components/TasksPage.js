@@ -1,35 +1,35 @@
-import React,{useState} from "react";
+import React, {useState} from "react";
 import TaskList from "./TaskList";
 
-export const  TASK_STATUS =["Not Started","In Progress","Done"]
+ const TASK_STATUS = ["Not Started", "In Progress", "Done"];
 
 const TasksPage = (props) => {
-    const [taskcardform, setTaskCardForm]=useState(false);
-    const [title,setTitle]=useState('');
-    const [description,setDescription]=useState('');
-    
-    const formToggler =()=>(
-        setTaskCardForm(!taskcardform)
-    ) 
+  const [taskcardform, setTaskCardForm] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-    const handleTititleChange = (e)=>(
-        setTitle(e.target.value)
-    )
-    const handleDescriptionChange =(e)=>(
-        setDescription(e.target.value)
-    )
-    const renderTaskList =()=>{
-        const {tasks}= props;
-        return TASK_STATUS.map((status,id)=>{
-            const taskStatus = tasks.filter(task => task.status === status) 
-            return (
-                <div key={id} className="col-md-3 card  m-3 p-0">
-                     <TaskList key={status} status={status} tasks ={taskStatus} />
-                </div>
-        )
-        })  
-    }
-    
+  const formToggler = () => setTaskCardForm(!taskcardform);
+
+  const handleTititleChange = (e) => setTitle(e.target.value);
+  const handleDescriptionChange = (e) => setDescription(e.target.value);
+
+  const renderTaskList = () => {
+    const {tasks} = props;
+    return TASK_STATUS.map((status, id) => {
+      const taskStatus = tasks.filter((task) => task.status === status);
+      return (
+        <div key={id} className="col-md-3 card  m-3 p-0">
+          <TaskList
+            key={status}
+            status={status}
+            tasks={taskStatus}
+            handleStatusChange={props.handleStatusChange}
+          />
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="container my-5">
       <div className="jumbotron py-4 row d-flex justify-content-center position-relative">
@@ -71,7 +71,8 @@ const TasksPage = (props) => {
       </div>
       <div
         className="row d-flex justify-content-center position-relative "
-        style={{background: "#fa8128", }}>
+        style={{background: "#fa8128"}}
+      >
         {renderTaskList()}
       </div>
     </div>

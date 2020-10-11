@@ -8,7 +8,11 @@ const TaskList = (props) => {
         {props.status}
       </div>
       {props.tasks.map((task) => (
-        <Task key={task.id} task={task} />
+        <Task
+          key={task.id}
+          task={task}
+          handleStatusChange={props.handleStatusChange}
+        />
       ))}
     </div>
   );
