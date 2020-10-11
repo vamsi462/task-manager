@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import TaskList from "./TaskList";
 
- export const TASK_STATUS = ["Not Started", "In Progress", "Done"];
+  const TASK_STATUS = ["Not Started", "In Progress", "Done"];
 
 const TasksPage = (props) => {
   const [taskcardform, setTaskCardForm] = useState(false);
@@ -12,6 +12,14 @@ const TasksPage = (props) => {
 
   const handleTititleChange = (e) => setTitle(e.target.value);
   const handleDescriptionChange = (e) => setDescription(e.target.value);
+
+  const handleTaskSubmit  =(e)=>{
+   e.preventDefault()
+   props.handleCreateTask({
+      title,
+      description
+   })
+  }
 
   const renderTaskList = () => {
     const {tasks} = props;
@@ -40,15 +48,13 @@ const TasksPage = (props) => {
             </button>
           </div>
           <div className="col-md-10">
-            <h2 className="display-4 text-center text-uppercase  ">
-              Task manger
-            </h2>
+            <h3 className="display-4 text-center   ">Task manger</h3>
           </div>
         </div>
 
         {/* inputforms */}
         {taskcardform && (
-          <form>
+          <form onSubmit={handleTaskSubmit}>
             <div className="form-group">
               <input
                 type="text"
