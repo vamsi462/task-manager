@@ -1,3 +1,6 @@
+import { act } from "react-dom/test-utils";
+import { EDIT_TASK } from "../actions/types";
+
 const intialState = [
     {
         id:1,
@@ -21,6 +24,16 @@ const intialState = [
 ]
 
 const tasks =(state={tasks:intialState},action)=>{
+    if(action.type===EDIT_TASK){
+        const {payload}=action;
+        return{
+            tasks: state.tasks.map((task) => {
+                if(task.id===payload.id){
+                    return Object.assign({},task,payload.params);
+                }
+            }),
+        };
+    }
     return state
 }
 
