@@ -1,7 +1,7 @@
 # task-manager
-### built-using redux react-redu
-####to install   npm install
-#####to start the project npm start
+### built-using redux react-redux
+#### to install   npm install
+##### to start the project npm start
 
 
 
