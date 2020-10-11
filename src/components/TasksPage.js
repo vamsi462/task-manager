@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import TaskList from "./TaskList";
 
-const  TASK_STATUS =["Not Started","In Progress","Done"]
+export const  TASK_STATUS =["Not Started","In Progress","Done"]
 
 const TasksPage = (props) => {
     const [taskcardform, setTaskCardForm]=useState(false);
@@ -23,7 +23,7 @@ const TasksPage = (props) => {
         return TASK_STATUS.map((status,id)=>{
             const taskStatus = tasks.filter(task => task.status === status) 
             return (
-                <div key={id}>
+                <div key={id} className="col-md-3 card  m-3 p-0">
                      <TaskList key={status} status={status} tasks ={taskStatus} />
                 </div>
         )
@@ -71,7 +71,7 @@ const TasksPage = (props) => {
       </div>
       <div
         className="row d-flex justify-content-center position-relative "
-        style={{background: "#fa8128", color: "white"}}>
+        style={{background: "#fa8128", }}>
         {renderTaskList()}
       </div>
     </div>

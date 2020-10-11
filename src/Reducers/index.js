@@ -3,7 +3,7 @@ const intialState = [
         id:1,
         title:"Learn Redux",
         description:"Let's learn react with redux today!!!",
-        status: "Done"
+        status: "In Progress"
     },
     {
         id: 2,
