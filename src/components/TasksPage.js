@@ -49,14 +49,14 @@ const TasksPage = (props) => {
   return (
     <div className="container my-5">
       <div className="jumbotron py-4 row d-flex justify-content-center position-relative">
-        <div className="row">
+        <div  className = "row " >
           <div className="col-md-2">
-            <button className=" btn btn-success m-3" onClick={formToggler}>
+            <button className=" btn btn-success m-4" onClick={formToggler}>
               +
             </button>
           </div>
           <div className="col-md-10">
-            <h3 className="display-4 text-center   ">Task manger</h3>
+            <h1 className="display-4 text-center">Manage Your Task</h1>
           </div>
         </div>
 
@@ -79,7 +79,7 @@ const TasksPage = (props) => {
                 onChange={handleDescriptionChange}
               />
             </div>
-            <button className="btn btn-primary">submit</button>
+            <button className="btn btn-primary">Let's Go!!</button>
           </form>
         )}
       </div>
