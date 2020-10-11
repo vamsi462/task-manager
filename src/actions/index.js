@@ -2,7 +2,8 @@
 
 import { EDIT_TASK } from "./types"
 import {CREATE_TASK} from "./types";
-import uuid from 'react-uuid'
+//import uuid from 'react-uuid'
+import shortid from 'shortid'
 
 export const  editTask =(id,params ={})=>{
     return {
@@ -14,14 +15,14 @@ export const  editTask =(id,params ={})=>{
     }
 }
 
-export const createTask =(title,description)=>{
+export const createTask =({title,description})=>{
     return {
       type: CREATE_TASK,
       payload: {
-        id:uuid(),
+        id: shortid.generate(),
         title,
         description,
-        status:"Not Started"
-      },
+        status: "Not Started",
+      }
     };
 }

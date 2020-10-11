@@ -13,6 +13,7 @@ const TaskList = (props) => {
           task={task}
           handleStatusChange={props.handleStatusChange}
         />
+      
       ))}
     </div>
   );
