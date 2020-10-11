@@ -1,6 +1,6 @@
 import React from "react";
-// import { TASK_STATUS} from './TasksPage'
- const TASK_STATUS = ["Not Started", "In Progress", "Done"];
+import { TASK_STATUS} from './TasksPage'
+ 
 
 
 const Task = (props) => {
