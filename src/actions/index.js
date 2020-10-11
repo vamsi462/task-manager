@@ -1,8 +1,10 @@
 //actions
 
 import { EDIT_TASK } from "./types"
-import {CREATE_TASK} from "./types";
-//import uuid from 'react-uuid'
+import {
+  CREATE_TASK,
+  DELETE_TASK
+} from "./types";
 import shortid from 'shortid'
 
 export const  editTask =(id,params ={})=>{
@@ -25,4 +27,11 @@ export const createTask =({title,description})=>{
         status: "Not Started",
       }
     };
+}
+
+export const deleteTask=(id)=>{
+  return {
+    type: DELETE_TASK,
+    id,
+  }
 }

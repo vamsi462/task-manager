@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import TaskList from "./TaskList";
 
-  const TASK_STATUS = ["Not Started", "In Progress", "Done"];
+export const TASK_STATUS = ["Not Started", "In Progress", "Done"];
 
 const TasksPage = (props) => {
   const [taskcardform, setTaskCardForm] = useState(false);
@@ -19,6 +19,13 @@ const TasksPage = (props) => {
       title,
       description
    })
+   resetForm()
+  }
+
+  const resetForm = ()=>{
+    setTitle("")
+    setDescription("")
+    setTaskCardForm(false)
   }
 
   const renderTaskList = () => {
@@ -32,6 +39,7 @@ const TasksPage = (props) => {
             status={status}
             tasks={taskStatus}
             handleStatusChange={props.handleStatusChange}
+            handleRemoveTask={props.handleRemoveTask}
           />
         </div>
       );

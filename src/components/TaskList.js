@@ -12,6 +12,7 @@ const TaskList = (props) => {
           key={task.id}
           task={task}
           handleStatusChange={props.handleStatusChange}
+          handleRemoveTask ={props.handleRemoveTask}
         />
       
       ))}
