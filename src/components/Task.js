@@ -1,13 +1,18 @@
 import React from "react";
-import { TASK_STATUS} from './TasksPage'
+// import { TASK_STATUS} from './TasksPage'
+ const TASK_STATUS = ["Not Started", "In Progress", "Done"];
+
 
 const Task = (props) => {
+    function handleOptionsChange(e){
+        props.handleStatusChange(props.task.id, e.target.value)
+    }
   return (
     <>
-    <form>
+    <form onChange={handleOptionsChange}>
         <select defaultValue={props.task.status}>
             {TASK_STATUS.map(status=>(
-                <option value="status" key="status">{status}</option>
+                <option value={status} key={status}>{status}</option>
             ))}
         </select>
     </form>
