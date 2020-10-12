@@ -3,6 +3,7 @@
 #### to install   npm install
 ##### to start the project npm start
 
+[DEMO](http://taskmanager-redux.surge.sh/)
 
 
 ### click on + symbol  to create the task
